@@ -1,4 +1,5 @@
-package hibernate_test.entity;
+package hibernate_test_1;
+
 
 import javax.persistence.*;
 
@@ -12,7 +13,7 @@ public class Employee {
     private int id;
 
     @Column(name="name")
-    private String name;
+    private String firstName;
 
     @Column(name="surname")
     private String surname;
@@ -23,11 +24,13 @@ public class Employee {
     @Column(name="salary")
     private int salary;
 
+
+
     public Employee() {
     }
 
     public Employee(String name, String surname, String department, int salary) {
-        this.name = name;
+        this.firstName = name;
         this.surname = surname;
         this.department = department;
         this.salary = salary;
@@ -37,7 +40,7 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
@@ -52,12 +55,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getSurname() {
@@ -83,4 +86,5 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
 }

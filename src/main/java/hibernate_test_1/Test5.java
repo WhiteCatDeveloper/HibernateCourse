@@ -1,12 +1,10 @@
-package hibernate_test.entity;
+package hibernate_test_1;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.List;
-
-public class Test3 {
+public class Test5 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -16,13 +14,10 @@ public class Test3 {
         try {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
-//            List<Employee> emps = session.createQuery("from Employee")
-//                            .getResultList();
-
-            List<Employee> emps = session.createQuery("from Employee " +
-                            "where name = 'alex' AND salary>1000")
-                            .getResultList();
-            for (Employee e: emps) System.out.println(e);
+//            Employee emp = session.get(Employee.class, 1);
+//            session.delete(emp);
+            session.createQuery("delete Employee " +
+                    "where firstName = 'Alex'").executeUpdate();
 
             session.getTransaction().commit();
             System.out.println("Done!");
