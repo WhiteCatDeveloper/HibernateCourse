@@ -8,12 +8,12 @@ public class Test2 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Employee1.class)
                 .buildSessionFactory();
 
         try {
             Session session = factory.getCurrentSession();
-            Employee emp = new Employee("Oleg",
+            Employee1 emp = new Employee1("Oleg",
                     "Sidorov", "HR", 700);
             session.beginTransaction();
             session.save(emp);
@@ -22,10 +22,10 @@ public class Test2 {
             int myId = emp.getId();
 //            session = factory.getCurrentSession();
 //            session.beginTransaction();
-            Employee employee = session.get(Employee.class, myId);
+            Employee1 employee1 = session.get(Employee1.class, myId);
             session.getTransaction().commit();
 
-            System.out.println(employee);
+            System.out.println(employee1);
 
             System.out.println("Done!");
         } finally {

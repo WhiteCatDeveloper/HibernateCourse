@@ -8,7 +8,7 @@ public class Test5 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Employee1.class)
                 .buildSessionFactory();
 
         try {
@@ -16,7 +16,7 @@ public class Test5 {
             session.beginTransaction();
 //            Employee emp = session.get(Employee.class, 1);
 //            session.delete(emp);
-            session.createQuery("delete Employee " +
+            session.createQuery("delete Employee1 " +
                     "where firstName = 'Alex'").executeUpdate();
 
             session.getTransaction().commit();

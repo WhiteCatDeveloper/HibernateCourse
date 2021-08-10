@@ -10,7 +10,7 @@ public class Test3 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Employee1.class)
                 .buildSessionFactory();
 
         try {
@@ -19,10 +19,10 @@ public class Test3 {
 //            List<Employee> emps = session.createQuery("from Employee")
 //                            .getResultList();
 
-            List<Employee> emps = session.createQuery("from Employee " +
+            List<Employee1> emps = session.createQuery("from Employee1 " +
                             "where firstName = 'alex' AND salary>1000")
                             .getResultList();
-            for (Employee e: emps) System.out.println(e);
+            for (Employee1 e: emps) System.out.println(e);
 
             session.getTransaction().commit();
             System.out.println("Done!");

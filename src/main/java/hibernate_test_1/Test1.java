@@ -8,12 +8,12 @@ public class Test1 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Employee1.class)
                 .buildSessionFactory();
 
         try {
             Session session = factory.getCurrentSession();
-            Employee emp = new Employee("Alex",
+            Employee1 emp = new Employee1("Alex",
                     "Smirnov", "IT", 650);
             session.beginTransaction();
             session.save(emp);

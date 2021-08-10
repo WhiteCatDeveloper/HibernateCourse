@@ -4,36 +4,46 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test1 {
+public class Test2 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(hibernate_test_2.Detail.class)
+                .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
         Session session = null;
 
         try {
-//            Session session = factory.getCurrentSession();
-//            Employee employee = new Employee("Yuriy", "belov",
-//                    "IT", 500);
-//            Detail detail = new Detail("Balakovo", "927144",
-//                    "thewithe@gmail.com");
+//            session = factory.getCurrentSession();
+//            Employee employee = new Employee("Nicolay",
+//                    "Ivanov", "HR", 850);
+//            Detail detail = new Detail("NY", "476543",
+//                    "nick@gmail.com");
 //            employee.setEmpDetail(detail);
+//            detail.setEmployee(employee);
+//            session.beginTransaction();
+//            session.save(detail);
+//            session.getTransaction().commit();
+//            System.out.println("Done!");
+
+//            session = factory.getCurrentSession();
 //
 //            session.beginTransaction();
-//            session.save(employee);
+//            Detail detail = session.get(Detail.class, 4);
+//            System.out.println(detail.getEmployee());
+//
 //
 //            session.getTransaction().commit();
 //            System.out.println("Done!");
 
             session = factory.getCurrentSession();
 
-
             session.beginTransaction();
-            Employee employee = session.get(Employee.class, 2);
-            session.delete(employee);
+
+            Detail detail = session.get(Detail.class, 1);
+            detail.getEmployee().setEmpDetail(null);
+            session.delete(detail);
 
 
             session.getTransaction().commit();
