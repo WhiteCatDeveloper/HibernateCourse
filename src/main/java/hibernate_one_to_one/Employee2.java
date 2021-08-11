@@ -1,10 +1,10 @@
-package hibernate_test_2;
+package hibernate_one_to_one;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="employees")
-public class Employee {
+public class Employee2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +27,10 @@ public class Employee {
     @JoinColumn(name = "details_id")
     private Detail empDetail;
 
-    public Employee() {
+    public Employee2() {
     }
 
-    public Employee(String name, String surname, String department, int salary) {
+    public Employee2(String name, String surname, String department, int salary) {
         this.name = name;
         this.surname = surname;
         this.department = department;

@@ -1,4 +1,4 @@
-package hibernate_test_2;
+package hibernate_one_to_one;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,8 +8,8 @@ public class Test1 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .addAnnotatedClass(hibernate_test_2.Detail.class)
+                .addAnnotatedClass(Employee2.class)
+                .addAnnotatedClass(hibernate_one_to_one.Detail.class)
                 .buildSessionFactory();
 
         Session session = null;
@@ -32,7 +32,7 @@ public class Test1 {
 
 
             session.beginTransaction();
-            Employee employee = session.get(Employee.class, 2);
+            Employee2 employee = session.get(Employee2.class, 2);
             session.delete(employee);
 
 

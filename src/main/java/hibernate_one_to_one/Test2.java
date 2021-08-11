@@ -1,4 +1,4 @@
-package hibernate_test_2;
+package hibernate_one_to_one;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,7 +8,7 @@ public class Test2 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Employee2.class)
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
 
