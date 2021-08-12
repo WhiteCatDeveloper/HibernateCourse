@@ -1,4 +1,4 @@
-package hibernate_one_to_many_bi;
+package hibernate_one_to_many_uni;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,20 +8,20 @@ public class Test1 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee3.class)
-                .addAnnotatedClass(Department1.class)
+                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Department.class)
                 .buildSessionFactory();
 
         Session session = null;
 
         try {
 //            session = factory.getCurrentSession();
-//            Department department = new Department("IT",
-//                    300, 1200);
-//            Employee emp1 = new Employee("yuriy",
-//                    "belov", 800);
-//            Employee emp2 = new Employee("lena",
-//                    "smirnova", 1000);
+//            Department department = new Department("HR",
+//                    500, 1500);
+//            Employee emp1 = new Employee("oleg",
+//                    "Ivanov", 800);
+//            Employee emp2 = new Employee("igor",
+//                    "sidorov", 1000);
 //            department.addEmployeeToDepartment(emp1);
 //            department.addEmployeeToDepartment(emp2);
 //
@@ -42,24 +42,26 @@ public class Test1 {
 //
 //            session.getTransaction().commit();
 //            System.out.println("Done!");
+
+
 //
 //            session = factory.getCurrentSession();
 //
 //            session.beginTransaction();
 //            Employee employee = session.get(Employee.class, 1);
 //            System.out.println(employee);
-//            System.out.println(employee.getDepartment());
 //
 //            session.getTransaction().commit();
 //            System.out.println("Done!");
+//
+
 
 
             session = factory.getCurrentSession();
 
             session.beginTransaction();
-            Employee3 employee = session.get(Employee3.class, 2);
-            session.delete(employee);
-
+            Department department = session.get(Department.class, 2);
+            session.delete(department);
             session.getTransaction().commit();
             System.out.println("Done!");
         } finally {

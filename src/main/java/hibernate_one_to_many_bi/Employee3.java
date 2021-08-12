@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="employees")
-public class Employee {
+public class Employee3 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,12 +23,12 @@ public class Employee {
     @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn (name = "department_id")
-    private Department department;
+    private Department1 department;
 
-    public Employee() {
+    public Employee3() {
     }
 
-    public Employee(String name, String surname, int salary) {
+    public Employee3(String name, String surname, int salary) {
         this.firstName = name;
         this.surname = surname;
         this.salary = salary;
@@ -66,11 +66,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Department getDepartment() {
+    public Department1 getDepartment() {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(Department1 department) {
         this.department = department;
     }
 
